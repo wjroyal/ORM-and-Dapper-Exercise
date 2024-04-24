@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ORM_Dapper
 {
-    public class DapperProductRepository : iProductRepository
+    public class DapperProductRepository : IProductRepository
     {
         private readonly IDbConnection _conn;
 
@@ -22,14 +22,10 @@ namespace ORM_Dapper
             throw new NotImplementedException();
         }
 
-        internal void GetAllProducts()
-        {
-            throw new NotImplementedException();
-        }
+       public IEnumerable<Product> GetAllProducts()
+       {
+            return _conn.Query<Product>("SELECT * FROM products");
+       }
 
-        IEnumerable<Product> iProductRepository.GetAllProducts()
-        {
-            return _conn.Query<Product>("SELECT * FROM products;");
-        }
     }
 }

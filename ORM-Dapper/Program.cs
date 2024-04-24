@@ -33,7 +33,7 @@ namespace ORM_Dapper
             }
 
             var ProductRepository = new DapperProductRepository(conn);
-            var products = ProductRepository.GetAllProducts();
+            var products = ((IProductRepository)ProductRepository).GetAllProducts();
 
             foreach (var product in products)
             {

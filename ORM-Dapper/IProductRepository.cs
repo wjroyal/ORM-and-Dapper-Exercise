@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace ORM_Dapper
 {
-    public interface iProductRepository
+    public interface IProductRepository
     {
         public IEnumerable<Product> GetAllProducts();
 
-       void CreateProduct(string name, double price, int categoryID);
-
-
+        public void CreateProduct(string name, double price, int categoryID);
+       
     }
 }
